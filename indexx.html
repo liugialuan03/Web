@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minh Quyền - In Ấn Chuyên Nghiệp</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f5f5;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* Header */
+    header {
+      background: white;
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+    }
+
+    .logo h1 {
+      color: #1d4ed8;
+      font-size: 34px;
+      font-weight: bold;
+    }
+
+    .logo p {
+      font-size: 12px;
+      letter-spacing: 3px;
+      color: #777;
+      margin-top: 5px;
+    }
+
+    nav {
+      display: flex;
+      gap: 30px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #1d4ed8;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(to right, #d9f99d, #ffffff);
+      padding: 100px 0;
+    }
+
+    .hero-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-text small {
+      color: green;
+      letter-spacing: 4px;
+      font-weight: bold;
+    }
+
+    .hero-text h2 {
+      font-size: 64px;
+      color: #1d4ed8;
+      margin-top: 10px;
+    }
+
+    .hero-text h3 {
+      font-size: 40px;
+      margin-top: 10px;
+    }
+
+    .hero-text p {
+      margin-top: 25px;
+      font-size: 18px;
+      color: #555;
+    }
+
+    .buttons {
+      margin-top: 35px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 15px 30px;
+      border-radius: 14px;
+      font-weight: bold;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: #1d4ed8;
+      color: white;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background: #163aa5;
+    }
+
+    .btn-outline {
+      border: 1px solid #ccc;
+      background: white;
+    }
+
+    .btn-outline:hover {
+      background: #eee;
+    }
+
+    .placeholder {
+      height: 450px;
+      background: white;
+      border: 2px dashed #ccc;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #777;
+      padding: 20px;
+    }
+
+    /* Services */
+    .section {
+      padding: 100px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title small {
+      color: green;
+      font-weight: bold;
+      letter-spacing: 3px;
+    }
+
+    .section-title h2 {
+      font-size: 42px;
+      margin-top: 15px;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .service-box {
+      background: white;
+      padding: 35px;
+      border-radius: 24px;
+      border: 1px solid #e5e5e5;
+      transition: 0.3s;
+    }
+
+    .service-box:hover {
+      transform: translateY(-5px);
+    }
+
+    .service-icon {
+      width: 60px;
+      height: 60px;
+      background: #dcfce7;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .service-box h3 {
+      font-size: 22px;
+      line-height: 1.5;
+    }
+
+    /* Product */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid #e5e5e5;
+      transition: 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-image {
+      height: 320px;
+      background: #efefef;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #777;
+      padding: 20px;
+    }
+
+    .product-content {
+      padding: 25px;
+    }
+
+    .product-content h3 {
+      font-size: 22px;
+    }
+
+    .product-content p {
+      color: #666;
+      margin-top: 10px;
+    }
+
+    /* Contact */
+    .contact {
+      background: linear-gradient(to right, #1d4ed8, #172554);
+      color: white;
+    }
+
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .contact-text h2 {
+      font-size: 52px;
+      margin-top: 15px;
+      line-height: 1.3;
+    }
+
+    .contact-text p {
+      margin-top: 25px;
+      color: #dbeafe;
+      font-size: 18px;
+    }
+
+    .contact-box {
+      background: white;
+      color: #222;
+      padding: 40px;
+      border-radius: 30px;
+    }
+
+    .contact-item {
+      margin-bottom: 30px;
+    }
+
+    .contact-item small {
+      color: #888;
+      letter-spacing: 2px;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .contact-item p {
+      font-size: 20px;
+      line-height: 1.8;
+    }
+
+    footer {
+      background: #111;
+      color: #999;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-wrap,
+      .contact-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-text h2 {
+        font-size: 48px;
+      }
+
+      .hero-text h3 {
+        font-size: 30px;
+      }
+
+      .contact-text h2 {
+        font-size: 38px;
+      }
+
+      nav {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-wrap">
+      <div class="logo">
+        <h1>MINH QUYỀN</h1>
+        <p>IN ẤN CHUYÊN NGHIỆP</p>
+      </div>
+
+      <nav>
+        <a href="#">Giới thiệu</a>
+        <a href="#">Dịch vụ</a>
+        <a href="#">Sản phẩm</a>
+        <a href="#">Liên hệ</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-wrap">
+
+      <div class="hero-text">
+        <small>DỊCH VỤ IN ẤN TOÀN QUỐC</small>
+
+        <h2>Minh Quyền</h2>
+        <h3>In Ấn Chuyên Nghiệp</h3>
+
+        <p>
+          Chuyên nhận in ấn các sản phẩm theo yêu cầu với thời gian nhanh,
+          chỉnh sửa linh hoạt và giao hàng toàn quốc.
+        </p>
+
+        <div class="buttons">
+          <button class="btn btn-primary">Xem dịch vụ</button>
+          <button class="btn btn-outline">Liên hệ Zalo</button>
+        </div>
+      </div>
+
+      <div class="placeholder">
+        <div>
+          <h2>Hình ảnh banner</h2>
+          <p>Tạm để trống theo yêu cầu</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section">
+    <div class="container">
+
+      <div class="section-title">
+        <small>DỊCH VỤ NỔI BẬT</small>
+        <h2>Chuyên nhận in ấn các sản phẩm</h2>
+      </div>
+
+      <div class="service-grid">
+
+        <div class="service-box">
+          <div class="service-icon">✔</div>
+          <h3>Thiệp mời song ngữ Việt Hoa</h3>
+        </div>
+
+        <div class="service-box">
+          <div class="service-icon">✔</div>
+          <h3>Hóa đơn bán lẻ, biểu mẫu</h3>
+        </div>
+
+        <div class="service-box">
+          <div class="service-icon">✔</div>
+          <h3>Sách thuyết minh, catalog</h3>
+        </div>
+
+        <div class="service-box">
+          <div class="service-icon">✔</div>
+          <h3>Tem nhãn, danh thiếp</h3>
+        </div>
+
+        <div class="service-box">
+          <div class="service-icon">✔</div>
+          <h3>Cờ lưu niệm, bảng đeo vinh dự</h3>
+        </div>
+
+        <div class="service-box">
+          <div class="service-icon">✔</div>
+          <h3>Thiết kế theo yêu cầu</h3>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section class="section">
+    <div class="container">
+
+      <div class="section-title">
+        <small>SẢN PHẨM DEMO</small>
+        <h2>Mẫu thiết kế nổi bật</h2>
+      </div>
+
+      <div class="product-grid">
+
+        <div class="product-card">
+          <div class="product-image">Hình sản phẩm demo</div>
+          <div class="product-content">
+            <h3>Thiết kế in ấn #1</h3>
+            <p>Demo bố cục sản phẩm.</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">Hình sản phẩm demo</div>
+          <div class="product-content">
+            <h3>Thiết kế in ấn #2</h3>
+            <p>Demo bố cục sản phẩm.</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">Hình sản phẩm demo</div>
+          <div class="product-content">
+            <h3>Thiết kế in ấn #3</h3>
+            <p>Demo bố cục sản phẩm.</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">Hình sản phẩm demo</div>
+          <div class="product-content">
+            <h3>Thiết kế in ấn #4</h3>
+            <p>Demo bố cục sản phẩm.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section contact">
+    <div class="container contact-wrap">
+
+      <div class="contact-text">
+        <small>THÔNG TIN LIÊN HỆ</small>
+        <h2>Nhận đặt hàng qua Zalo</h2>
+
+        <p>
+          Hỗ trợ gửi mẫu, chỉnh sửa nhanh chóng và giao hàng toàn quốc.
+        </p>
+      </div>
+
+      <div class="contact-box">
+
+        <div class="contact-item">
+          <small>ĐỊA CHỈ</small>
+          <p>Số 1339, Ấp Tân Thành, Xã Bàu Hàm, Đồng Nai</p>
+        </div>
+
+        <div class="contact-item">
+          <small>HOTLINE</small>
+          <p>0908055433 (Thảo) – 0985339039 (Liên)</p>
+        </div>
+
+        <div class="contact-item">
+          <small>HỖ TRỢ</small>
+          <p>In nhanh – đúng tiến độ – giá hợp lý</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2026 Minh Quyền Printing Service - Demo Website
+  </footer>
+
+</body>
+</html>
